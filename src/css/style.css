@@ -1,13 +1,114 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
     display: flex;
-    flex-direction: column; /* Organiza os elementos em coluna */
     justify-content: center;
     align-items: center;
-    background-color: #202020; /* Fundo escuro */
+    min-height: 100vh;
+    flex-direction: column; /* Organiza os elementos em coluna */
+    background: radial-gradient(#4c0c0c, #000);
     color: #e0e0e0; /* Texto claro */
+}
+
+/* .conteiner {
+    position: relative;
+    height: 100px; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.heart {
+    position: relative;
+    width: 75px; 
+    height: 75px; 
+}
+
+.heart::before {
+    content: '';
+    position: absolute;
+    top: 25px; 
+    left: 5px;
+    width: 50px;
+    height: 75px;
+    background: #e81224;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    rotate: 315deg;
+    z-index: 1000;
+}
+
+.heart::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 23px;
+    width: 50px;
+    height: 75px;
+    background: #e81224;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    rotate: 45deg;
+    z-index: 1000;
+} */
+
+.drop {
+    position: absolute;
+    top: 20px; /* Ajustado proporcionalmente */
+    width: 15px; /* Reduzido pela metade */
+    height: 15px; /* Reduzido pela metade */
+    filter: drop-shadow(5px 5px 10px #000) drop-shadow(0px 0px 10px #f00);
+    transform-origin: bottom;
+    animation: animate 4s linear forwards;
+}
+
+.drop::before {
+    content: '';
+    position: absolute;
+    width: 10px; /* Reduzido pela metade */
+    height: 15px; /* Reduzido pela metade */
+    background: #f00;
+    border-top-left-radius: 10px; /* Reduzido pela metade */
+    border-top-right-radius: 10px; /* Reduzido pela metade */
+    transform-origin: bottom center;
+    rotate: -45deg;
+    z-index: 100000;
+}
+
+.drop::after {
+    content: '';
+    position: absolute;
+    bottom: 1.5px; /* Ajustado proporcionalmente */
+    width: 15px; /* Reduzido pela metade */
+    height: 10px; /* Reduzido pela metade */
+    background: #f00;
+    border-top-right-radius: 10px; /* Reduzido pela metade */
+    border-bottom-right-radius: 10px; /* Reduzido pela metade */
+    transform-origin: bottom center;
+    rotate: 315deg;
+    z-index: 100000;
+}
+
+@keyframes animate {
+    0% {
+        top: 0;
+        opacity: 1;
+        scale: 1;
+    }
+    70% {
+        top: 90%; 
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+        scale: 0;
+    }
 }
 
 .carrossel {
@@ -45,6 +146,7 @@ body {
 
 .tempo-juntos {
     font-size: 18px;
+    font-weight: 500;
     text-align: center;
     line-height: 1.6;
     color: #e0e0e0; /* Texto claro */
@@ -73,8 +175,8 @@ a:hover {
 }
 
 .mensagem {
-    max-width: 500px;
-    font-size: 16px;
+    max-width: 400px;
+    font-size: 12px;
     text-align: center;
     color: #e0e0e0; /* Cor do texto */
 }

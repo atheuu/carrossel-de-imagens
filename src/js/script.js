@@ -1,3 +1,22 @@
+function rain() {
+    let carrossel = document.querySelector('.carrossel-wrapper');
+    let e = document.createElement('div');
+    e.classList.add('drop');
+    carrossel.appendChild(e);
+
+    let left = Math.floor(Math.random() * carrossel.offsetWidth); // Ajuste para largura do carrossel
+    let duracao = Math.random() * 0.5;
+
+    e.style.left = left + 'px';
+    e.style.animationDuration = 4 + duracao + 's'; // Aumenta a duração mínima para 4 segundos
+
+    setTimeout(function () {
+        carrossel.removeChild(e);
+    }, 3000);
+}
+
+setInterval(rain, 350); // Reduz o número de corações ao aumentar o intervalo
+
 let indiceAtual = 0;
 const imagens = document.querySelectorAll('.carrossel img');
 const totalImagens = imagens.length;
