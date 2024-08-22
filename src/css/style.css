@@ -11,7 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     flex-direction: column; /* Organiza os elementos em coluna */
-    background: radial-gradient(#4c0c0c, #000);
+    background: radial-gradient(#202020, #000);
     color: #e0e0e0; /* Texto claro */
 }
 
@@ -175,8 +175,8 @@ a:hover {
 }
 
 .mensagem {
-    max-width: 400px;
-    font-size: 12px;
+    max-width: 500px;
+    font-size: 14px;
     text-align: center;
     color: #e0e0e0; /* Cor do texto */
 }
