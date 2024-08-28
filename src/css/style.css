@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Estilo geral do corpo da página */
 body {
     font-family: "Open Sans", sans-serif;
     display: flex;
@@ -15,133 +16,99 @@ body {
     color: #e0e0e0; /* Texto claro */
 }
 
-/* .conteiner {
-    position: relative;
-    height: 100px; 
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.heart {
-    position: relative;
-    width: 75px; 
-    height: 75px; 
-}
-
-.heart::before {
-    content: '';
-    position: absolute;
-    top: 25px; 
-    left: 5px;
-    width: 50px;
-    height: 75px;
-    background: #e81224;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    rotate: 315deg;
-    z-index: 1000;
-}
-
-.heart::after {
-    content: '';
-    position: absolute;
-    top: 25px;
-    left: 23px;
-    width: 50px;
-    height: 75px;
-    background: #e81224;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    rotate: 45deg;
-    z-index: 1000;
-} */
-
-.drop {
-    position: absolute;
-    top: 20px; /* Ajustado proporcionalmente */
-    width: 15px; /* Reduzido pela metade */
-    height: 15px; /* Reduzido pela metade */
-    filter: drop-shadow(5px 5px 10px #000) drop-shadow(0px 0px 10px #f00);
-    transform-origin: bottom;
-    animation: animate 4s linear forwards;
-}
-
-.drop::before {
-    content: '';
-    position: absolute;
-    width: 10px; /* Reduzido pela metade */
-    height: 15px; /* Reduzido pela metade */
-    background: #f00;
-    border-top-left-radius: 10px; /* Reduzido pela metade */
-    border-top-right-radius: 10px; /* Reduzido pela metade */
-    transform-origin: bottom center;
-    rotate: -45deg;
-    z-index: 100000;
-}
-
-.drop::after {
-    content: '';
-    position: absolute;
-    bottom: 1.5px; /* Ajustado proporcionalmente */
-    width: 15px; /* Reduzido pela metade */
-    height: 10px; /* Reduzido pela metade */
-    background: #f00;
-    border-top-right-radius: 10px; /* Reduzido pela metade */
-    border-bottom-right-radius: 10px; /* Reduzido pela metade */
-    transform-origin: bottom center;
-    rotate: 315deg;
-    z-index: 100000;
-}
-
-@keyframes animate {
-    0% {
-        top: 0;
-        opacity: 1;
-        scale: 1;
-    }
-    70% {
-        top: 90%; 
-        opacity: 1;
-    }
-    100% {
-        top: 100%;
-        opacity: 0;
-        scale: 0;
-    }
-}
-
+/* O carrossel é posicionado em cima dos corações */
 .carrossel {
     width: 80%;
     max-width: 400px;
     position: relative;
     margin: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra mais escura */
-    background-color: #1e1e1e; /* Fundo escuro para o carrossel */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: #1e1e1e;
     overflow: hidden;
     aspect-ratio: 3 / 4; /* Proporção 3:4 */
+    z-index: 10; /* Garante que o carrossel fique acima dos corações */
 }
 
+/* O wrapper do carrossel é posicionado em cima dos corações */
 .carrossel-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
+/* O carrossel ocupa o espaço completo do container */
 .carrossel img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Cobrir o espaço disponível mantendo a proporção */
     display: none;
     border-radius: 10px;
 }
 
-.carrossel img.active {
+/* A imagem ativa é exibida */
+.carrossel img.ativo {
     display: block;
+}
+
+/* Estilo dos corações que caem */
+.gota {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    filter: drop-shadow(5px 5px 10px #000) drop-shadow(0px 0px 10px #f00);
+    transform-origin: bottom;
+    z-index: 1; /* Garante que os corações estejam atrás do carrossel */
+    animation: animacao 4s linear forwards;
+}
+
+/* Adiciona as partes da gota */
+.gota::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    background: #f00;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom center;
+    rotate: -45deg;
+}
+
+.gota::after {
+    content: '';
+    position: absolute;
+    bottom: 1.5px;
+    width: 15px;
+    height: 10px;
+    background: #f00;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transform-origin: bottom center;
+    rotate: 315deg;
+}
+
+/* Animação dos corações */
+@keyframes animacao {
+    0% {
+        top: -20px; /* Inicia acima da tela */
+        opacity: 1;
+        transform: scale(1);
+    }
+    70% {
+        top: 80%; /* Movimento até quase o final da tela */
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+        transform: scale(0);
+    }
 }
 
 .tempo-juntos {
@@ -149,21 +116,20 @@ body {
     font-weight: 500;
     text-align: center;
     line-height: 1.6;
-    color: #e0e0e0; /* Texto claro */
+    color: #e0e0e0;
 }
 
 .tempo-juntos p {
     margin: 5px 0;
 }
 
-/* Link Styles (If Any) */
 a {
-    color: #bb86fc; /* Cor para links em tema escuro */
+    color: #bb86fc;
     text-decoration: none;
 }
 
 a:hover {
-    color: #3700b3; /* Cor do hover para links */
+    color: #3700b3;
 }
 
 .linha {
@@ -175,12 +141,51 @@ a:hover {
 }
 
 .mensagem {
-    max-width: 500px;
+    max-width: 450px;
     font-size: 14px;
     text-align: center;
-    color: #e0e0e0; /* Cor do texto */
+    color: #e0e0e0;
 }
 
 .mensagem p {
     margin: 10px; /* Ajusta a margem para os parágrafos */
+}
+
+/* Responsividade adicional */
+@media (max-width: 768px) {
+    .carrossel {
+        width: 90%;
+        max-width: 300px; /* Ajusta o tamanho máximo para telas menores */
+    }
+
+    .tempo-juntos {
+        font-size: 14px;
+    }
+
+    .linha {
+        width: 90%;
+        max-width: 250px; /* Ajusta o tamanho da linha em telas menores */
+    }
+
+    .mensagem {
+        font-size: 13px; /* Reduz um pouco o tamanho do texto em telas menores */
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carrossel {
+        width: 95%;
+        max-width: 250px; /* Ajusta o tamanho máximo para telas muito pequenas */
+    }
+
+    .linha {
+        width: 95%;
+        max-width: 200px; /* Ajusta o tamanho da linha em telas muito pequenas */
+    }
+
+    .mensagem {
+        font-size: 12px; /* Reduz ainda mais o tamanho do texto em telas muito pequenas */
+        max-width: 250px;
+    }
 }
