@@ -10,20 +10,20 @@ function chuvaDeCoracoes() {
 
     // Calcula uma posição aleatória para a "gota" ao longo da largura da tela
     let posicaoHorizontal = Math.floor(Math.random() * window.innerWidth);
-    
+
     // Calcula uma duração aleatória para a animação da "gota"
     let duracaoAnimacao = Math.random() * 0.5;
 
     // Define a posição horizontal e a duração da animação
     coracao.style.left = posicaoHorizontal + 'px';
-    coracao.style.animationDuration = 5 + duracaoAnimacao + 's'; // Aumenta a duração mínima para 5 segundos
+    coracao.style.animationDuration = 5 + duracaoAnimacao + 's'; // Aumenta a duração, deixando mais lento
 
-    // Remove a "gota" após 5,5 segundos para evitar sobrecarga de elementos
+    // Remove a "gota" após 7 segundos para evitar sobrecarga de elementos
     setTimeout(function () {
         body.removeChild(coracao);
-    }, 5500);
+    }, 7000);
     // Removendo elementos antigos da memória
-    setTimeout(() => coracao.remove(), 4000);
+    setTimeout(() => coracao.remove(), 7000);
 }
 
 // Chama a função chuvaDeCoracoes a cada 400 milissegundos

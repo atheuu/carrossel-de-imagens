@@ -14,6 +14,22 @@ body {
     flex-direction: column; /* Organiza os elementos em coluna */
     background: radial-gradient(#202020, #000);
     color: #e0e0e0; /* Texto claro */
+    overflow-x: hidden;
+}
+
+/* Estilize o iframe para que cubra toda a área, mas sem afetar o layout da página */
+.video-background {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: none;
+    overflow: hidden;
+}
+
+/* Garantir que o conteúdo da página fique acima do vídeo */
+.content {
+    position: relative;
+    z-index: 1;
 }
 
 /* O carrossel é posicionado em cima dos corações */
@@ -100,8 +116,8 @@ body {
         opacity: 1;
         transform: scale(1);
     }
-    70% {
-        top: 80%; /* Movimento até quase o final da tela */
+    80% {
+        top: 90%; /* Movimento até quase o final da tela */
         opacity: 1;
     }
     100% {
@@ -110,6 +126,7 @@ body {
         transform: scale(0);
     }
 }
+
 
 .tempo-juntos {
     font-size: 18px;
