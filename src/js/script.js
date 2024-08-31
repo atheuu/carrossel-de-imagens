@@ -29,6 +29,10 @@ function chuvaDeCoracoes() {
 // Chama a função chuvaDeCoracoes a cada 400 milissegundos
 setInterval(chuvaDeCoracoes, 400); // Reduz o número de corações ao aumentar o intervalo
 
+
+
+
+
 // Variáveis para o controle das imagens do carrossel
 let indiceImagemAtual = 0;
 const imagensCarrossel = document.querySelectorAll('.carrossel img');
@@ -46,16 +50,18 @@ setInterval(mostrarProximaImagem, 3000);
 
 
 
-// Função para atualizar a diferença de tempo entre a data fixa e a data atual
+
+
+// Função para atualizar a diferença de tempo entre a data de inicio e a data atual
 function atualizarTempo() {
-    // Data fixa (inicial)
-    const dataFixa = moment("2023-10-14T16:00:00");
+    // Data inicial
+    const dataInicial = moment("2023-10-14T16:00:00");
 
     // Data atual (momento presente)
     const dataAtual = moment();
 
     // Calcula a diferença entre a data atual e a data fixa
-    const diferenca = moment.duration(dataAtual.diff(dataFixa));
+    const diferenca = moment.duration(dataAtual.diff(dataInicial));
 
     // Extrai anos, meses, dias, horas, minutos e segundos da diferença
     const anos = diferenca.years();

@@ -14,7 +14,7 @@ body {
     flex-direction: column; /* Organiza os elementos em coluna */
     background: radial-gradient(#202020, #000);
     color: #e0e0e0; /* Texto claro */
-    overflow-x: hidden;
+    overflow-x: hidden; 
 }
 
 /* Estilize o iframe para que cubra toda a área, mas sem afetar o layout da página */
@@ -77,9 +77,9 @@ body {
     left: 0;
     width: 15px;
     height: 15px;
-    filter: drop-shadow(5px 5px 10px #000) drop-shadow(0px 0px 10px #f00);
+    filter: drop-shadow(5px 5px 10px #000) drop-shadow(0px 0px 10px #fff);
     transform-origin: bottom;
-    z-index: 1; /* Garante que os corações estejam atrás do carrossel */
+    z-index: 0; /* Coloca as gotas atrás do texto */
     animation: animacao 4s linear forwards;
 }
 
@@ -89,11 +89,12 @@ body {
     position: absolute;
     width: 10px;
     height: 15px;
-    background: #f00;
+    background: #fff;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transform-origin: bottom center;
     rotate: -45deg;
+    opacity: 0.5; /* Diminui a opacidade das gotas */
 }
 
 .gota::after {
@@ -102,11 +103,12 @@ body {
     bottom: 1.5px;
     width: 15px;
     height: 10px;
-    background: #f00;
+    background: #fff;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     transform-origin: bottom center;
     rotate: 315deg;
+    opacity: 0.5; /* Diminui a opacidade das gotas */
 }
 
 /* Animação dos corações */
@@ -127,6 +129,11 @@ body {
     }
 }
 
+/* Garante que o texto fique acima das gotas */
+.tempo-juntos, .mensagem {
+    position: relative;
+    z-index: 1; /* Garante que o texto fique acima das gotas */
+}
 
 .tempo-juntos {
     font-size: 18px;
